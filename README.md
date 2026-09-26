@@ -4,7 +4,7 @@ This is a program that takes in an image and resizes it using Seam Carving. It o
 
 ## Usage
 
-`python3 seam.py [-h] [--vertical] [--forward] [--live] <image> <scale>`
+`uv run seam.py [-h] [--vertical] [--forward] [--live] <image> <scale>`
 
 ## Dependencies
 
@@ -16,6 +16,8 @@ This is a program that takes in an image and resizes it using Seam Carving. It o
 - `scipy`
 - `imageio`
 - `cv2`
+
+The dependencies are managed with [uv](https://docs.astral.sh/uv/), which installs them on the first `uv run`.
 
 ## Results
 

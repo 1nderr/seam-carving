@@ -1,0 +1,15 @@
+[project]
+name = "seam-carving"
+version = "0.1.0"
+description = "Resizes images with seam carving"
+readme = "README.md"
+authors = [
+    { name = "1nder", email = "20195347+1nderr@users.noreply.github.com" }
+]
+requires-python = ">=3.9"
+dependencies = [
+    "imageio",
+    "numpy",
+    "opencv-python",
+    "scipy",
+]

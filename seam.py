@@ -1,6 +1,6 @@
-from imageio import imread, imwrite
+from imageio.v2 import imread, imwrite
 import numpy as np
-from scipy.ndimage.filters import convolve
+from scipy.ndimage import convolve
 from argparse import ArgumentParser
 import cv2
 
@@ -114,7 +114,7 @@ def find_min_seam(E):
             # Stores the index for backtracking
             back[i, j] = min_j
     # Returns the last index of M which is the minimum seam
-    return M[-1], back.astype(np.int)
+    return M[-1], back.astype(int)
 
 
 def remove_seam(img, seam, back, vertical=False, show_live=False):
@@ -199,6 +199,7 @@ def main():
     if s > 0 and s < 1:
         print("Resizing {} with scale {} using {} energy...".format(dim, s, energy))
         out = seam_carving(img, s, func, args.vertical, args.live)
+        out = np.round(np.clip(out, 0, 1) * 255).astype(np.uint8)
         imwrite(args.image.split(".")[0] + "_out.jpg", out)
     else:
         print("Scale must be between 0 and 1.")
